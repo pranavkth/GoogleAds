@@ -20,12 +20,29 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBa-wK-0fZ">
+                                <rect key="frame" x="0.0" y="249" width="375" height="128"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="fN6-J0-fDe"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rBa-wK-0fZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="229" id="YBx-fd-z1k"/>
+                            <constraint firstAttribute="trailing" secondItem="rBa-wK-0fZ" secondAttribute="trailing" id="iDb-rD-A1m"/>
+                            <constraint firstItem="rBa-wK-0fZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lZI-M3-ZWv"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="adView" destination="rBa-wK-0fZ" id="msF-Is-O2R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="118" y="128"/>
+            <point key="canvasLocation" x="206" y="134"/>
         </scene>
     </scenes>
 </document>
