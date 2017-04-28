@@ -17,7 +17,6 @@ class ViewController: UIViewController , GADBannerViewDelegate ,GADInterstitialD
     var interstitial: GADInterstitial!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,21 +25,23 @@ class ViewController: UIViewController , GADBannerViewDelegate ,GADInterstitialD
         adBannerView.rootViewController = self
         adBannerView.load(GADRequest())
         interstitial = createAndLoadInterstitial()
-        
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         print("adviewdid receive ad")
+        
+        // comment below code if you dont want to animate your ad.Below code produces slide down effect.
+        
         let translateTransform = CGAffineTransform(translationX: 0, y: -bannerView.bounds.size.height)
         bannerView.transform = translateTransform
         
         UIView.animate(withDuration: 0.5){
             bannerView.transform = CGAffineTransform.identity
-            
         }
     }
+    
+    // BannerView optional delegate methods.
     
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
         print("fail to receive ads")
@@ -48,9 +49,10 @@ class ViewController: UIViewController , GADBannerViewDelegate ,GADInterstitialD
     }
     
     
+    // Function to Create and Load Interstitial Ad.
+    
     private func createAndLoadInterstitial()-> GADInterstitial? {
-        
-        
+    
         interstitial = GADInterstitial(adUnitID: "ca-app-pub-9389698076492273/5166466948")
         guard let interstitial = interstitial else{
             return nil
@@ -66,6 +68,8 @@ class ViewController: UIViewController , GADBannerViewDelegate ,GADInterstitialD
         return interstitial
         
     }
+    
+    //Interstitial Optional Delegate methods.
     
     func interstitialDidReceiveAd(_ ad: GADInterstitial) {
         print("interstitial received ad")
